@@ -12,8 +12,8 @@ use_checkpoint = false  # if true read diversity filter from agent_file
 purge_memories = false  # if true purge all diversity filter memories after each stage
 
 ## Reinvent
-prior_file = "priors/reinvent.prior"
-agent_file = "priors/reinvent.prior"
+prior_file = "../../priors/reinvent.prior"
+agent_file = "../../priors/reinvent.prior"
 
 batch_size = 50          # network
 
