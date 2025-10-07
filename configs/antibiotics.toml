@@ -79,9 +79,9 @@ transform.type = "left_step"
 transform.low = 4
 
 [[stage.scoring.component]]
-[stage.scoring.component.S_aureus]
-[[stage.scoring.component.S_aureus.endpoint]]
-name = "S_aureus"
+[stage.scoring.component.Antibiotic]
+[[stage.scoring.component.Antibiotic.endpoint]]
+name = "Antibiotic"
 weight = 1
 
 [[stage.scoring.component]]
