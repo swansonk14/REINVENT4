@@ -64,9 +64,9 @@ weight = 1
 transform.type = "double_sigmoid"
 transform.high = 500.0
 transform.low = 300.0
-transform.coef_div = 500.0
-transform.coef_si = 20.0
-transform.coef_se = 20.0
+transform.coef_div = 50.0
+transform.coef_si = 1.0
+transform.coef_se = 1.0  # results in k = 1/50 after transformation (before log)
 
 [[stage.scoring.component]]
 [stage.scoring.component.SAScore]
@@ -75,7 +75,23 @@ name = "SAScore"
 weight = 1
 
 # A transform ensures that the output from the scoring component ranges from 0 to 1 to serve as a proper score.
-transform.type = "reverse_sigmoid"
-transform.high = 4
+transform.type = "left_step"
 transform.low = 4
-transform.k = 1
+
+[[stage.scoring.component]]
+[stage.scoring.component.S_aureus]
+[[stage.scoring.component.S_aureus.endpoint]]
+name = "S_aureus"
+weight = 1
+
+[[stage.scoring.component]]
+[stage.scoring.component.Solubility]
+[[stage.scoring.component.Solubility.endpoint]]
+name = "Solubility"
+weight = 1
+
+# A transform ensures that the output from the scoring component ranges from 0 to 1 to serve as a proper score.
+transform.type = "sigmoid"
+transform.high = -2
+transform.low = -6
+transform.k = 0.4  # results in k = 1 after transformation (before log)

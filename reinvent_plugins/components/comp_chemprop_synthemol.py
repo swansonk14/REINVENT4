@@ -125,7 +125,7 @@ class ChempropScorer:
 
 
 @add_tag("__component")
-class Chemprop_S_aureus:
+class S_aureus:
     """Scores molecules for S. aureus activity using a Chemprop-RDKit model from SyntheMol."""
 
     def __init__(self):
@@ -140,7 +140,7 @@ class Chemprop_S_aureus:
 
 
 @add_tag("__component")
-class Chemprop_solubility:
+class Solubility:
     """Scores molecules for solubility using a Chemprop-RDKit model from SyntheMol."""
 
     def __init__(self):
