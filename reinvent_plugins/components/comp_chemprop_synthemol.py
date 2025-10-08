@@ -8,12 +8,12 @@ import numpy as np
 import torch
 from chemprop.models import MoleculeModel
 from chemprop.utils import load_checkpoint, load_scalers
-from rdkit.Chem import rdNormalizedDescriptors
+from descriptastorus.descriptors import rdNormalizedDescriptors
 from sklearn.preprocessing import StandardScaler
 from typing import List, Union
 
-from ..add_tag import add_tag
-from ..component_results import ComponentResults
+from .add_tag import add_tag
+from .component_results import ComponentResults
 from ..normalize import normalize_smiles
 
 
