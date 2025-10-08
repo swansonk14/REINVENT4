@@ -1,6 +1,6 @@
 """Compute scores with Chemprop models from SyntheMol"""
 
-__all__ = ["Chemprop_S_aureus", "Chemprop_solubility"]
+__all__ = ["Antibiotic", "Solubility"]
 
 from pathlib import Path
 
