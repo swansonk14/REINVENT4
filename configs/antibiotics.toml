@@ -59,39 +59,27 @@ type = "geometric_mean"  # aggregation function
 [[stage.scoring.component.MolecularWeight.endpoint]]
 name = "MolecularWeight"
 weight = 1
-
-# A transform ensures that the output from the scoring component ranges from 0 to 1 to serve as a proper score.
-transform.type = "double_sigmoid"
-transform.high = 500.0
-transform.low = 300.0
-transform.coef_div = 50.0
-transform.coef_si = 1.0
-transform.coef_se = 1.0  # results in k = 1/50 after transformation (before log)
+transform.type = "left_step"
+transform.low = 600.0
 
 [[stage.scoring.component]]
 [stage.scoring.component.SAScore]
 [[stage.scoring.component.SAScore.endpoint]]
 name = "SAScore"
 weight = 1
-
-# A transform ensures that the output from the scoring component ranges from 0 to 1 to serve as a proper score.
 transform.type = "left_step"
 transform.low = 4
-
-[[stage.scoring.component]]
-[stage.scoring.component.Antibiotic]
-[[stage.scoring.component.Antibiotic.endpoint]]
-name = "Antibiotic"
-weight = 1
 
 [[stage.scoring.component]]
 [stage.scoring.component.Solubility]
 [[stage.scoring.component.Solubility.endpoint]]
 name = "Solubility"
 weight = 1
+transform.type = "right_step"
+transform.high = -4
 
-# A transform ensures that the output from the scoring component ranges from 0 to 1 to serve as a proper score.
-transform.type = "sigmoid"
-transform.high = -2
-transform.low = -6
-transform.k = 0.4  # results in k = 1 after transformation (before log)
+[[stage.scoring.component]]
+[stage.scoring.component.Antibiotic]
+[[stage.scoring.component.Antibiotic.endpoint]]
+name = "Antibiotic"
+weight = 1
