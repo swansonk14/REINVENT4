@@ -128,7 +128,7 @@ class ChempropScorer:
 class Antibiotic:
     """Scores molecules for S. aureus antibiotic activity using a Chemprop-RDKit model from SyntheMol."""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs) -> None:
         self.scorer = ChempropScorer(
             model_path=Path("../../../SyntheMol/rl/models/s_aureus_chemprop_rdkit"),
         )
@@ -143,7 +143,7 @@ class Antibiotic:
 class Solubility:
     """Scores molecules for solubility using a Chemprop-RDKit model from SyntheMol."""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs) -> None:
         self.scorer = ChempropScorer(
             model_path=Path("../../../SyntheMol/rl/models/solubility_chemprop_rdkit"),
         )
